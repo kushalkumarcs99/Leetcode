@@ -1,4 +1,21 @@
 class Solution{
 public:
   bool twoSumBSTs(TreeNode* root1, TreeNode* root2, int target){
+  IF(root1 == NULL || root2 == NULL)  return false;
   
+  //compare the values
+  int sum  = root1 -> val + root2 -> val;
+  if(sum == target)   return true;
+  
+  //if sum > target call left of each
+  if(sum > tareget)
+  {
+    return twoSumBSTs(root1 -> left, root2, target) || twoSumBSTs(root1, root2 -> left, target);
+  }
+  
+  else
+  {
+  return twoSumBsts(root1 -> right, root2, target) || twoSumBSTs(root1, root2 -> target);
+  }
+  }
+  };
